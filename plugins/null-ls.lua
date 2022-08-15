@@ -20,7 +20,10 @@ local sources = {
    b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
    -- rust
-   b.formatting.rustfmt
+   b.formatting.rustfmt,
+
+   -- sql
+   b.formatting.pg_format,
 }
 
 null_ls.setup {

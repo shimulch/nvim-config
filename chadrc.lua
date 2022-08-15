@@ -11,6 +11,9 @@ M.ui = {
 
 M.plugins = {
   user = {
+    ["goolord/alpha-nvim"] = {
+      disable = false,
+    },
     ["neovim/nvim-lspconfig"] = {
       config = function()
         require "plugins.configs.lspconfig"
@@ -20,7 +23,16 @@ M.plugins = {
     ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
       config = function()
-         require "custom.plugins.null-ls"
+        require "custom.plugins.null-ls"
+      end,
+    },
+    ["NvChad/nvterm"] = {
+      module = "nvterm",
+      config = function()
+        require "custom.plugins.nvterm"
+      end,
+      setup = function()
+        require("core.utils").load_mappings "nvterm"
       end,
     },
   },
@@ -39,9 +51,12 @@ M.plugins = {
         -- shell
         "shfmt",
         "shellcheck",
-      }
-    }
-  }
+
+        -- sql
+        "sqls",
+      },
+    },
+  },
 }
 
 return M
